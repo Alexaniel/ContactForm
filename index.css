@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.flex-row-center {
+    display: flex;
+    flex-flow: row;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-flow: column;
+}
+
+
+.section {
+    margin-bottom: 0.7vw;
+}
+
+.left {
+    width: calc(50% - 0.8vw);
+    margin-right: 0.8vw;
+}
+
+.right {
+    width: calc(50% - 0.8vw);
+    margin-left: 0.8vw;
+}
+
+.cont-state {
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-state .icon {
+    margin-right: 20px;
+}

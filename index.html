@@ -1,0 +1,120 @@
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Formulario</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+</head>
+  <body>
+    <div id="app">
+      
+      <!-- Si quiere editar el tamaño del formulario solo cambia los estilos del cont-form -->
+
+      <div class="cont-form flex-column-center" style="height: 40vw; width: 60%; margin: 0 auto;">
+
+        <span style="width: 100%; text-align: center;">Formulario de contacto</span>
+        <!-- Aqui va el control de los mensajes del estado del correo  -->
+
+
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+
+        </v-form>
+
+        <div class="section flex-row-center">
+          <div class="left">
+            <v-text-field
+              v-model="name"
+              label="Nombres Completos"
+              required
+            ></v-text-field>
+          </div>
+
+          <div class="right">
+            <v-text-field
+              v-model="lastname"
+              label="Apellidos Completos"
+              required
+            ></v-text-field>
+          </div>
+        </div>
+
+        <div class="section flex-column-center">
+          <v-text-field
+            v-model="topic"
+            label="Asunto del mensaje"
+            required
+          ></v-text-field>
+        </div>
+
+        <div class="section flex-column-center">
+          <span>aqui</span>
+
+          <v-select
+            :items="items"
+            label="Standard"
+          ></v-select>
+        </div>
+
+
+        <div class="section flex-row-center">
+          <div class="left"> 
+            <v-text-field
+              v-model="phone"
+              label="Teléfono"
+              required
+            ></v-text-field>
+          </div>
+
+          <div class="right">
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="Correo electrónico"
+              required
+            ></v-text-field>
+          </div>
+        </div>
+
+        <div class="section flex-column-center">
+          <v-text-field
+            v-model="code"
+            label="Código"
+            required
+          ></v-text-field>
+        </div>
+
+        <div class="section flex-column-center">
+          <v-textarea
+            solo
+            name="input-7-4"
+            v-model="message"
+            label="Mensaje"
+          ></v-textarea>
+        </div>
+        <div class="section flex-column-center">
+          <v-btn
+            :disabled="!valid"
+            @click="validate"
+          >
+            Enviar
+          </v-btn>
+        </div>
+        <div class="flex-row-center cont-state" v-if="state.active">
+          <img src="./assets/img/loader.svg" class="icon" v-if="state.loader"/>
+          <span>{{ state.text }}</span>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+  
